@@ -2,20 +2,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trai
 from torch.utils.data import TensorDataset
 import torch
 from textfier.core.dataset import TextClassificationDataset
-from sklearn.metrics import precision_recall_fscore_support, accuracy_score
-
-def compute_metrics(pred):
-    labels = pred.label_ids
-    preds = pred.predictions.argmax(-1)
-    print(labels, preds)
-    precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='binary')
-    acc = accuracy_score(labels, preds)
-    return {
-        'accuracy': acc,
-        'f1': f1,
-        'precision': precision,
-        'recall': recall
-    }
+from textfier.utils.metrics import compute_metrics
 
 
 # Using the community model
@@ -24,13 +11,12 @@ tokenizer = AutoTokenizer.from_pretrained('neuralmind/bert-base-portuguese-cased
 model = AutoModelForSequenceClassification.from_pretrained('neuralmind/bert-base-portuguese-cased')
 
 text_batch = ["quero andar por ai", "quero andar por ai"]
-labels = torch.tensor([0, 0])
+labels = [0, 0]
 encoding = tokenizer(text_batch, return_tensors='pt', padding=True, truncation=True)
 input_ids = encoding['input_ids']
 attention_mask = encoding['attention_mask']
 
 train_data = TextClassificationDataset(input_ids, attention_mask, labels)
-
 
 training_args = TrainingArguments(
     output_dir='./results',          # output directory
