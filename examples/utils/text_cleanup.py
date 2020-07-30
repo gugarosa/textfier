@@ -1,15 +1,15 @@
-import utils.cleaner as c
-import utils.tokenizer as t
+import textfier.utils.cleaner as c
+import textfier.utils.tokenizer as t
 
-#
-s = 'Good muffins cost $3.88\nin New York. Please buy me two of them.\n\nThanks.'
+# Defines an input string
+s = 'Os bolos estão custando R$12,00 em São Paulo. Por favor, compre dois.\n\nObrigado.'
 
-#
-tokens = t.tokenize_to_sent(s)
+# Tokenizes, stems sentences and optionally remove stopwords
+sentences = t.tokenize_to_sentences(s)
+stemmed_sentences = c.clean_sentences(sentences, remove_stopwords=False)
+print(f'Sentences: {stemmed_sentences}')
 
-print(tokens)
-
-#
-tokens = c.stem_tokens(tokens)
-
-print(tokens)
+# Tokenizes, stems words and optionally remove stopwords
+words = t.tokenize_to_words(s)
+stemmed_words = c.clean_words(words, remove_stopwords=False)
+print(f'Words: {stemmed_words}')
