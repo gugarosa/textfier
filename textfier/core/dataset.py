@@ -1,5 +1,12 @@
+"""Dataset-related classes and helpers.
+"""
+
 import torch
 from torch.utils.data import Dataset
+
+import textfier.utils.logging as l
+
+logger = l.get_logger(__name__)
 
 
 class TextClassificationDataset(Dataset):
@@ -17,6 +24,8 @@ class TextClassificationDataset(Dataset):
 
         """
 
+        logger.debug('Creating dataset ...')
+
         # Encoded data
         self.data = data
 
@@ -25,6 +34,8 @@ class TextClassificationDataset(Dataset):
 
         # Tasks labels
         self.labels = torch.tensor(labels)
+
+        logger.debug('Dataset created.')
 
     def __getitem__(self, idx):
         """Private method that is the base for PyTorch's iterator.

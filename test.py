@@ -1,14 +1,18 @@
-from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
-from torch.utils.data import TensorDataset
 import torch
+from torch.utils.data import TensorDataset
+from transformers import (AutoConfig, AutoModelForSequenceClassification,
+                          AutoTokenizer, Trainer, TrainingArguments)
+
 from textfier.core.dataset import TextClassificationDataset
 from textfier.utils.metrics import compute_metrics
 
-
 # Using the community model
 # BERT Base
+config = AutoConfig.from_pretrained('neuralmind/bert-base-portuguese-cased', num_labels=3)
 tokenizer = AutoTokenizer.from_pretrained('neuralmind/bert-base-portuguese-cased')
-model = AutoModelForSequenceClassification.from_pretrained('neuralmind/bert-base-portuguese-cased')
+model = AutoModelForSequenceClassification.from_pretrained('neuralmind/bert-base-portuguese-cased', config=config)
+print(model)
+
 
 text_batch = ["quero andar por ai", "quero andar por ai"]
 labels = [0, 0]

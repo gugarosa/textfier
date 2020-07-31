@@ -26,13 +26,13 @@ def compute_metrics(preds):
     accuracy = accuracy_score(y_true, y_preds)
 
     # Calculates the f1-score
-    f1 = f1_score(y_true, y_preds)
+    f1 = f1_score(y_true, y_preds, average='weighted')
 
     # Calculates the precision score
-    precision = precision_score(y_true, y_preds)
+    precision = precision_score(y_true, y_preds, average='weighted')
 
     # Calculates the recall score
-    recall = recall_score(y_true, y_preds)
+    recall = recall_score(y_true, y_preds, average='weighted')
 
     return {
         'accuracy': accuracy,

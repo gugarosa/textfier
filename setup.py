@@ -1,4 +1,3 @@
-
 from setuptools import find_packages, setup
 
 with open('README.md', 'r') as f:
@@ -14,7 +13,9 @@ setup(name='textfier',
       url='https://github.com/gugarosa/textfier',
       license='GPL-3.0',
       install_requires=['nltk>=3.5',
-                        'pylint>=2.5.2'
+                        'pylint>=2.5.2',
+                        'scikit-learn>=0.22.2',
+                        'transformers>=3.0.2'
                         ],
       extras_require={
           'tests': ['coverage',
