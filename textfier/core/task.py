@@ -1,4 +1,4 @@
-"""Model-related classes and helpers with pre-defined tasks.
+"""Task-related classes and helpers with pre-defined tasks.
 """
 
 from transformers import (AutoConfig, AutoModelForSequenceClassification,
@@ -9,9 +9,9 @@ import textfier.utils.logging as l
 logger = l.get_logger(__name__)
 
 
-class TextClassificationModel:
-    """TextClassificationModel implements pre-trained models used to
-    handle customizable text classification tasks.
+class TextClassificationTask:
+    """TextClassificationModel implements pre-trained tasks used to
+    handle customizable text classification models.
 
     """
 
@@ -24,7 +24,7 @@ class TextClassificationModel:
 
         """
 
-        logger.debug('Instantiating pre-trained model: %s ...', pretrained_model)
+        logger.debug('Instantiating from pre-trained model: %s ...', pretrained_model)
 
         # Overrides the model's configuration file
         self.config = AutoConfig.from_pretrained(pretrained_model, num_labels=n_classes)
@@ -35,4 +35,4 @@ class TextClassificationModel:
         # Loads the pre-trained model
         self.model = AutoModelForSequenceClassification.from_pretrained(pretrained_model, config=self.config)
 
-        logger.debug('Model instantiated.')
+        logger.debug('Task instantiated.')
