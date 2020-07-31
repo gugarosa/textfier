@@ -1,5 +1,5 @@
-import textfier.utils.cleaner as c
-import textfier.utils.tokenizer as t
+import textfier.stream.cleaner as c
+import textfier.stream.tokenizer as t
 
 # Defines an input string
 s = 'Os bolos estão custando R$12,00 em São Paulo. Por favor, compre dois.\n\nObrigado.'
