@@ -1,38 +1,53 @@
 """Task-related classes and helpers with pre-defined tasks.
 """
 
-from transformers import (AutoConfig, AutoModelForSequenceClassification,
-                          AutoTokenizer)
+from transformers import AutoConfig, AutoTokenizer
 
 import textfier.utils.logging as l
 
 logger = l.get_logger(__name__)
 
 
-class TextClassificationTask:
-    """TextClassificationModel implements pre-trained tasks used to
-    handle customizable text classification models.
+class Task:
+    """Task implements a default class used to handle customizable tasks.
 
     """
 
-    def __init__(self, pretrained_model='neuralmind/bert-base-portuguese-cased', n_classes=2):
+    def __init__(self, model, **kwargs):
         """Initialization method.
 
         Args:
-            pretrained_model (str): Identifier of the pre-trained model to be loaded.
-            n_classes (int): Number of classes allowed in the classification task.
+            model (str): Identifier of the pre-trained model to be loaded.
 
         """
 
-        logger.debug('Instantiating from pre-trained model: %s ...', pretrained_model)
+        logger.debug('Creating task with: %s ...', model)
 
-        # Overrides the model's configuration file
-        self.config = AutoConfig.from_pretrained(pretrained_model, num_labels=n_classes)
+        # Overrides the model's configuration file with additional keywords
+        self.config = AutoConfig.from_pretrained(model, **kwargs)
 
-        # Loads the tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
+        # Loads the model's tokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(model)
 
-        # Loads the pre-trained model
-        self.model = AutoModelForSequenceClassification.from_pretrained(pretrained_model, config=self.config)
+        # Tries to build the task
+        try:
+            # Note that it will only build is method is overridden in child
+            self._build(model)
 
-        logger.debug('Task instantiated.')
+            # Logs that task has been created
+            logger.debug('Task created.')
+
+        # If task could not be built
+        except NotImplementedError:
+            # Logs an error
+            logger.error('Private method `build` has not been overridden.')
+
+    def _build(self, model):
+        """Builds up the pre-trained model according to the desired task.
+
+        Args:
+            model (str): Identifier of the pre-trained model to be built.
+
+        """
+
+        raise NotImplementedError

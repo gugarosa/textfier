@@ -17,7 +17,7 @@ def load_txt(file_name):
 
     """
 
-    logger.debug('Loading %s ...', file_name)
+    logger.debug('Loading text from: %s ...', file_name)
 
     # Tries to load the file
     try:
@@ -26,6 +26,8 @@ def load_txt(file_name):
 
         # Reads the text
         text = file.read().decode(encoding='utf-8')
+
+        logger.debug('Text loaded.')
 
         return text
 

@@ -3,7 +3,7 @@ from transformers import Trainer, TrainingArguments
 import textfier.stream.tokenizer as t
 import textfier.utils.loader as l
 from textfier.core.dataset import TextClassificationDataset
-from textfier.core.task import TextClassificationTask
+from textfier.tasks import SequenceClassificationTask
 from textfier.utils.metrics import compute_metrics
 
 # Loading text from file
@@ -16,7 +16,7 @@ sentences = t.tokenize_to_sentences(text)
 labels = [0, 1, 0, 1, 0, 0]
 
 # Creates the task
-task = TextClassificationTask(pretrained_model='neuralmind/bert-base-portuguese-cased')
+task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=2)
 
 # Encodes the input sequences using the model's tokenizer
 encoded_sentences = task.tokenizer(sentences[:3], return_tensors='pt', padding=True, truncation=True)

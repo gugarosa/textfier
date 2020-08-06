@@ -1,3 +1,6 @@
+# Logs
+textfier.log.*
+
 # MacOS files
 **/*.DS_Store
 
