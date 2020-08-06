@@ -1,4 +1,4 @@
-"""Task-related classes and helpers with pre-defined tasks.
+"""Sequence classification pre-defined task.
 """
 
 from transformers import AutoModelForSequenceClassification
@@ -10,8 +10,8 @@ logger = l.get_logger(__name__)
 
 
 class SequenceClassificationTask(Task):
-    """TextClassificationModel implements pre-trained tasks used to
-    handle customizable text classification models.
+    """SequenceClassificationTask implements a pre-trained task used to
+    handle text classification.
 
     """
 

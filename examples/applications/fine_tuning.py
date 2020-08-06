@@ -16,7 +16,7 @@ sentences = t.tokenize_to_sentences(text)
 labels = [0, 1, 0, 1, 0, 0]
 
 # Creates the task
-task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=2)
+task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=3)
 
 # Encodes the input sequences using the model's tokenizer
 encoded_sentences = task.tokenizer(sentences[:3], return_tensors='pt', padding=True, truncation=True)

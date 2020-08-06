@@ -1,4 +1,4 @@
-"""Task-related classes and helpers with pre-defined tasks.
+"""Default task class.
 """
 
 from transformers import AutoConfig, AutoTokenizer

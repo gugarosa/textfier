@@ -1,4 +1,4 @@
-"""Dataset-related classes and helpers.
+"""Default dataset class.
 """
 
 import torch
