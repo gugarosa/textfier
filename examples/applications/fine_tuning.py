@@ -19,10 +19,11 @@ task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased',
 encoded_sentences = task.tokenizer(sentences, return_tensors='pt', padding=True, truncation=True)
 
 # Creates the dataset
-train_dataset = Dataset(input_ids=encoded_sentences['input_ids'], attention_mask=encoded_sentences['attention_mask'], labels=labels)
+train_dataset = Dataset(input_ids=encoded_sentences['input_ids'],
+                        attention_mask=encoded_sentences['attention_mask'], labels=labels)
 
 #
-runner = Runner(task.model, train_dataset, num_train_epochs=2)
+runner = Runner(task.model, train_dataset, num_train_epochs=5)
 
 #
 runner.train()

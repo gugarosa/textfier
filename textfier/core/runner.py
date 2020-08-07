@@ -18,9 +18,9 @@ class Runner(Trainer):
         """Inialization method.
 
         Args:
-            model ():
-            train_dataset ():
-            eval_dataset ():
+            model (PreTrainedModel): Pre-trained model.
+            train_dataset (Dataset): Training dataset.
+            eval_dataset (Dataset): Evaluation dataset.
 
         """
 
