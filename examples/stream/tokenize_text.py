@@ -1,12 +1,12 @@
 import textfier.stream.tokenizer as t
 
 # Defines an input string
-s = 'Os bolos estão custando R$12,00 em São Paulo. Por favor, compre dois.\n\nObrigado.'
+s = 'The cakes costs about $12,00 in São Paulo. Please, buy two.\n\nThanks.'
 
 # Tokenizes to sentences
-sentences = t.tokenize_to_sentences(s)
+sentences = t.tokenize_to_sentences(s, language='english')
 print(f'Sentences: {sentences}')
 
 # Tokenizes to words
-words = t.tokenize_to_words(s)
+words = t.tokenize_to_words(s, language='english')
 print(f'Words: {words}')

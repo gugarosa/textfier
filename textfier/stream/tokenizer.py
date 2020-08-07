@@ -4,11 +4,12 @@
 from nltk.tokenize import sent_tokenize, word_tokenize
 
 
-def tokenize_to_sentences(text):
+def tokenize_to_sentences(text, language='portuguese'):
     """Tokenizes text into sentence-level.
 
     Args:
         text (str): String holding the text to be tokenized.
+        language (str): Identifier of tokenizer's language.
 
     Returns:
         List of sentence-level tokens.
@@ -16,16 +17,17 @@ def tokenize_to_sentences(text):
     """
 
     # Applies the sentence tokenizer
-    tokens = sent_tokenize(text, language='portuguese')
+    tokens = sent_tokenize(text, language=language)
 
     return tokens
 
 
-def tokenize_to_words(text):
+def tokenize_to_words(text, language='portuguese'):
     """Tokenizes text into word-level.
 
     Args:
         text (str): String holding the text to be tokenized.
+        language (str): Identifier of tokenizer's language.
 
     Returns:
         List of word-level tokens.
@@ -33,6 +35,6 @@ def tokenize_to_words(text):
     """
 
     # Applies the word tokenizer
-    tokens = word_tokenize(text, language='portuguese')
+    tokens = word_tokenize(text, language=language)
 
     return tokens

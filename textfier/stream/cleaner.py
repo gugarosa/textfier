@@ -4,10 +4,10 @@
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer
 
-import textfier.utils.tokenizer as t
+import textfier.stream.tokenizer as t
 
 
-def clean_sentences(sentences, remove_stopwords=False):
+def clean_sentences(sentences, remove_stopwords=False, language='portuguese'):
     """Stems and removes stopwords from a set of sentence-level tokens using the RSLPStemmer.
 
     Args:
@@ -28,7 +28,7 @@ def clean_sentences(sentences, remove_stopwords=False):
         words = t.tokenize_to_words(s)
 
         # Stems the words
-        stemmed_words = clean_words(words, remove_stopwords)
+        stemmed_words = clean_words(words, remove_stopwords, language)
 
         # Re-builds the sentence and appends to list
         stemmed_sentences.append(' '.join(stemmed_words))
@@ -36,12 +36,13 @@ def clean_sentences(sentences, remove_stopwords=False):
     return stemmed_sentences
 
 
-def clean_words(words, remove_stopwords=False):
+def clean_words(words, remove_stopwords=False, language='portuguese'):
     """Stems and removes stopwords from a set of word-level tokens using the RSLPStemmer.
 
     Args:
         words (list): Tokens to be stemmed.
         remove_stopwords (bool): Whether stopwords should be removed or not.
+        language (str): Identifier of stopwords' language.
 
     Returns:
         List of stemmed tokens.
@@ -54,7 +55,7 @@ def clean_words(words, remove_stopwords=False):
     # Checks if stopwords are supposed to be removed
     if remove_stopwords:
         # Gathers the stopwords
-        stop_words = stopwords.words('portuguese')
+        stop_words = stopwords.words(language)
 
         # Stems and removes the stopwords
         stemmed_words = [stemmer.stem(word) for word in words if word.lower() not in stop_words]

@@ -1,4 +1,4 @@
-from textfier.core.task import TextClassificationTask
+from textfier.core import Task
 
 # Creates the task
-task = TextClassificationTask(pretrained_model='neuralmind/bert-base-portuguese-cased')
+task = Task(model='neuralmind/bert-base-portuguese-cased')
