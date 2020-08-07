@@ -25,10 +25,6 @@ class Dataset(torch.utils.data.Dataset):
             # Sets an attribute based on key-value pair
             setattr(self, key, value)
 
-        # Key-value pair can be re-utilized to derive
-        # the length of the dataset
-        self.length = len(getattr(self, key))
-
         logger.debug('Dataset created.')
 
     def __getitem__(self, idx):
@@ -55,6 +51,12 @@ class Dataset(torch.utils.data.Dataset):
     def __len__(self):
         """Private method that serve as PyTorch's auxiliary.
 
+        Returns:
+            Length of the first dataset's property.
+
         """
 
-        return self.length
+        # Trick to gather the first property from the class
+        prop = list(vars(self).values())[0]
+
+        return len(prop)

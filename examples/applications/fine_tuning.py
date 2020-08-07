@@ -1,10 +1,7 @@
-from transformers import Trainer, TrainingArguments
-
 import textfier.stream.tokenizer as t
 import textfier.utils.loader as l
-from textfier.core import Dataset
+from textfier.core import Dataset, Runner
 from textfier.tasks import SequenceClassificationTask
-from textfier.utils.metrics import compute_metrics
 
 # Loading text from file
 text = l.load_txt('data/sample.txt')
@@ -16,15 +13,24 @@ sentences = t.tokenize_to_sentences(text)
 labels = [0, 1, 0, 1, 0, 0]
 
 # Creates the task
-task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=3)
+task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=2)
 
 # Encodes the input sequences using the model's tokenizer
-encoded_sentences = task.tokenizer(sentences[:5], return_tensors='pt', padding=True, truncation=True)
+encoded_sentences = task.tokenizer(sentences, return_tensors='pt', padding=True, truncation=True)
 
 # Creates the dataset
-train_dataset = Dataset(input_ids=encoded_sentences['input_ids'], attention_mask=encoded_sentences['attention_mask'], labels=labels[:3])
+train_dataset = Dataset(input_ids=encoded_sentences['input_ids'], attention_mask=encoded_sentences['attention_mask'], labels=labels)
 
-print(len(train_dataset))
+#
+runner = Runner(task.model, train_dataset, num_train_epochs=2)
+
+#
+runner.train()
+
+#
+preds = runner.predict(train_dataset)
+
+print(preds)
 
 # encoded_sentences = task.tokenizer(sentences[3:], return_tensors='pt', padding=True, truncation=True)
 # val_dataset = TextClassificationDataset(encoded_sentences['input_ids'], encoded_sentences['attention_mask'], labels[3:])
