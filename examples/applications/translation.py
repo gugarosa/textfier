@@ -3,7 +3,7 @@ from textfier.tasks import Seq2SeqTask
 # Creates a sequence-to-sequence task
 task = Seq2SeqTask(model='t5-small')
 
-# Defines the inpunt text
+# Defines the input text
 text = 'translate English to German: My name is Textfier and I am able to help you.'
 
 # Tokenizes the input
