@@ -3,11 +3,11 @@ from textfier.tasks import Seq2SeqTask
 # Creates a sequence-to-sequence task
 task = Seq2SeqTask(model='t5-small')
 
-# Defines the inpunt text
-text = 'New York (CNN) When Liana Barrientos was 23 years old, she got married in Westchester County, New York.'
-'A year later, she got married again in Westchester County,'
-'but to a different man and without divorcing her first husband.'
-'Only 18 days after that marriage, she got hitched yet again.'
+# Defines the input text
+text = '''New York (CNN) When Liana Barrientos was 23 years old, she got married in Westchester County, New York.
+A year later, she got married again in Westchester County,
+but to a different man and without divorcing her first husband.
+Only 18 days after that marriage, she got hitched yet again.'''
 
 # Encodes the input
 enc_text = task.tokenizer.encode('summarize: ' + text, return_tensors='pt', max_length=256)

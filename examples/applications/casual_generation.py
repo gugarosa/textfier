@@ -6,15 +6,15 @@ task = CausalLanguageModelingTask(model='xlnet-base-cased')
 # Usage of padding text helps XLNet with short seeds
 # Proposed by Aman Rusia in https://github.com/rusiaaman/XLNet-gen#methodology
 PADDING = '''In 1991, the remains of Russian Tsar Nicholas II and his family
- (except for Alexei and Maria) are discovered.
- The voice of Nicholas's young son, Tsarevich Alexei Nikolaevich, narrates the
- remainder of the story. 1883 Western Siberia,
- a young Grigori Rasputin is asked by his father and a group of men to perform magic.
- Rasputin has a vision and denounces one of the men as a horse thief. Although his
- father initially slaps him for making such an accusation, Rasputin watches as the
- man is chased outside and beaten. Twenty years later, Rasputin sees a vision of
- the Virgin Mary, prompting him to become a priest. Rasputin quickly becomes famous,
- with people, even a bishop, begging for his blessing. <eod> </s> <eos>'''
+(except for Alexei and Maria) are discovered.
+The voice of Nicholas's young son, Tsarevich Alexei Nikolaevich, narrates the
+remainder of the story. 1883 Western Siberia,
+a young Grigori Rasputin is asked by his father and a group of men to perform magic.
+Rasputin has a vision and denounces one of the men as a horse thief. Although his
+father initially slaps him for making such an accusation, Rasputin watches as the
+man is chased outside and beaten. Twenty years later, Rasputin sees a vision of
+the Virgin Mary, prompting him to become a priest. Rasputin quickly becomes famous,
+with people, even a bishop, begging for his blessing. <eod> </s> <eos>'''
 
 # Defines the input seed
 seed = "Today the weather is really nice and I am planning on "

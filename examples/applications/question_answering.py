@@ -5,10 +5,10 @@ from textfier.tasks import QuestionAnsweringTask
 task = QuestionAnsweringTask(model='distilbert-base-cased-distilled-squad')
 
 # Defines the input context
-context = """Transformers (formerly known as pytorch-transformers and pytorch-pretrained-bert) provides general-purpose
+context = '''Transformers (formerly known as pytorch-transformers and pytorch-pretrained-bert) provides general-purpose
 architectures (BERT, GPT-2, RoBERTa, XLM, DistilBert, XLNet…) for Natural Language Understanding (NLU) and Natural
 Language Generation (NLG) with over 32+ pretrained models in 100+ languages and deep interoperability between
-TensorFlow 2.0 and PyTorch."""
+TensorFlow 2.0 and PyTorch.'''
 
 # Defines the input questions
 questions = ['How many pretrained models are available in Transformers?',
