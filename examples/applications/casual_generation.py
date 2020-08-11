@@ -19,7 +19,7 @@ PADDING = '''In 1991, the remains of Russian Tsar Nicholas II and his family
 # Defines the input seed
 seed = "Today the weather is really nice and I am planning on "
 
-# Tokenizes the input
+# Encodes the input
 inputs = task.tokenizer.encode(PADDING + seed, add_special_tokens=False, return_tensors="pt")
 
 # Gathers the length of padded input

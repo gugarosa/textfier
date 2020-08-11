@@ -9,7 +9,7 @@ text = 'New York (CNN) When Liana Barrientos was 23 years old, she got married i
 'but to a different man and without divorcing her first husband.'
 'Only 18 days after that marriage, she got hitched yet again.'
 
-# Tokenizes the input
+# Encodes the input
 enc_text = task.tokenizer.encode('summarize: ' + text, return_tensors='pt', max_length=256)
 
 # Performs the translation

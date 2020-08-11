@@ -8,7 +8,7 @@ task = MaskedLanguageModelingTask(model='distilbert-base-cased')
 # Defines the input text
 text = f'Distilled models are {task.tokenizer.mask_token} than the models they mimic.'
 
-# Tokenizes the input
+# Encodes the input
 enc_text = task.tokenizer.encode(text, return_tensors='pt')
 
 # Gathers the mask token's index

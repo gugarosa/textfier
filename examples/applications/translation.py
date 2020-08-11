@@ -6,7 +6,7 @@ task = Seq2SeqTask(model='t5-small')
 # Defines the input text
 text = 'translate English to German: My name is Textfier and I am able to help you.'
 
-# Tokenizes the input
+# Encodes the input
 enc_text = task.tokenizer.encode(text, return_tensors='pt')
 
 # Performs the translation
