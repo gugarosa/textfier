@@ -5,11 +5,11 @@ with open('README.md', 'r') as f:
 
 setup(name='textfier',
       version='1.0.0',
-      description='Text-based Classifier',
+      description='Text-based Modifiers',
       long_description=long_description,
       long_description_content_type='text/markdown',
       author='Gustavo Rosa',
-      author_email='gth.rosa@uol.com.br',
+      author_email='gustavo.rosa@unesp.br',
       url='https://github.com/gugarosa/textfier',
       license='GPL-3.0',
       install_requires=['nltk>=3.5',
