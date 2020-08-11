@@ -1,5 +1,5 @@
 Welcome to Textfier's documentation!
-=================================
+=====================================
 
 Textfier is compatible with: **Python 3.6+**.
 
@@ -9,7 +9,7 @@ Textfier is compatible with: **Python 3.6+**.
 
     api/textfier.core
     api/textfier.stream
-    api/textfier.task
+    api/textfier.tasks
     api/textfier.utils
 
 Indices and tables

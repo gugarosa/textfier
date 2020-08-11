@@ -1,7 +1,7 @@
-textformer.tasks
-=================
+textfier.tasks
+===============
 
-.. autoapimodule:: textformer.tasks
+.. autoapimodule:: textfier.tasks
    :members:
    :show-inheritance:
    :private-members:
