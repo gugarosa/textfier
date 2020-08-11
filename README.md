@@ -8,7 +8,7 @@
 
 Read the docs at [textfier.readthedocs.io](https://textfier.readthedocs.io).
 
-textfier is compatible with: **Python 3.6+**.
+Textfier is compatible with: **Python 3.6+**.
 
 ---
 
