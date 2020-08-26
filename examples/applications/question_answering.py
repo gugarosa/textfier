@@ -21,7 +21,7 @@ for question in questions:
     enc_question = task.tokenizer(question, context, add_special_tokens=True, return_tensors='pt')
 
     # Retrieves the indexes
-    idx = enc_question["input_ids"].tolist()[0]
+    idx = enc_question['input_ids'].tolist()[0]
 
     # Performs the question answering
     preds_start, preds_end = task.model(**enc_question)
