@@ -34,7 +34,7 @@ def load_csv(file_name):
 
         logger.debug('Labels and samples loaded.')
 
-        return labels, samples
+        return samples, labels
 
     # If file can not be loaded
     except FileNotFoundError:

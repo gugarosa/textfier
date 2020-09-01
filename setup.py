@@ -13,6 +13,7 @@ setup(name='textfier',
       url='https://github.com/gugarosa/textfier',
       license='GPL-3.0',
       install_requires=['nltk>=3.5',
+                        'pandas>=1.0.3',
                         'pylint>=2.5.2',
                         'scikit-learn>=0.22.2',
                         'transformers>=3.0.2'

@@ -3,8 +3,8 @@ from textfier.core import Dataset, Runner
 from textfier.tasks import SequenceClassificationTask
 
 # Loads training and testing samples
-Y_train, X_train = l.load_csv('data/csv/train.csv')
-Y_test, X_test = l.load_csv('data/csv/test.csv')
+X_train, Y_train = l.load_csv('data/csv/train.csv')
+X_test, Y_test = l.load_csv('data/csv/test.csv')
 
 # Creates the sequence classification task with pre-trained model
 task = SequenceClassificationTask(model='neuralmind/bert-base-portuguese-cased', num_labels=2)
