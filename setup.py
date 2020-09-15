@@ -4,7 +4,7 @@ with open('README.md', 'r') as f:
     long_description = f.read()
 
 setup(name='textfier',
-      version='1.0.1',
+      version='1.0.2',
       description='Text-based Modifiers',
       long_description=long_description,
       long_description_content_type='text/markdown',
