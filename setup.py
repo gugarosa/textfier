@@ -16,7 +16,7 @@ setup(name='textfier',
                         'pandas>=1.0.3',
                         'pylint>=2.5.2',
                         'scikit-learn>=0.22.2',
-                        'transformers>=3.0.2'
+                        'transformers>=3.3.0'
                         ],
       extras_require={
           'tests': ['coverage',
