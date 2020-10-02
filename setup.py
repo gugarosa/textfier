@@ -12,11 +12,12 @@ setup(name='textfier',
       author_email='gustavo.rosa@unesp.br',
       url='https://github.com/gugarosa/textfier',
       license='GPL-3.0',
-      install_requires=['nltk>=3.5',
-                        'pandas>=1.0.3',
-                        'pylint>=2.5.2',
-                        'scikit-learn>=0.22.2',
-                        'transformers>=3.3.0'
+      install_requires=['coverage>=5.3',
+                        'nltk>=3.5',
+                        'pandas>=1.1.2',
+                        'pylint>=2.6.0',
+                        'scikit-learn>=0.23.2',
+                        'transformers>=3.3.1'
                         ],
       extras_require={
           'tests': ['coverage',
