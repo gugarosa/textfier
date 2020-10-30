@@ -17,6 +17,7 @@ setup(name='textfier',
                         'pandas>=1.1.2',
                         'pylint>=2.6.0',
                         'scikit-learn>=0.23.2',
+                        'torch>=1.6.0',
                         'transformers>=3.3.1'
                         ],
       extras_require={
