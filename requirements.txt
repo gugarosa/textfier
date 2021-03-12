@@ -1,7 +1,15 @@
 coverage>=5.5
 nltk>=3.5
+<<<<<<< HEAD
 pandas>=1.2.3
 pylint>=2.7.2
 pytest>=6.2.2
 scikit-learn>=0.24.1
 transformers>=4.3.3
+=======
+pandas>=1.1.2
+pylint>=2.6.0
+scikit-learn>=0.23.2
+torch>=1.6.0
+transformers>=3.3.1
+>>>>>>> 57474f213cf7d04850d8115ff0b31d98483fa138
