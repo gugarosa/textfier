@@ -21,27 +21,19 @@ def load_csv(file_name):
 
     logger.debug('Loading labels and samples from: %s ...', file_name)
 
-    # Tries to load the file
     try:
-        # Loads a .csv file using Pandas
         csv = pd.read_csv(file_name)
 
-        # Gathers the labels
         labels = csv['label'].tolist()
-
-        # Gathers the samples
         samples = csv['sample'].tolist()
 
         logger.debug('Labels and samples loaded.')
 
         return samples, labels
 
-    # If file can not be loaded
     except FileNotFoundError:
-        # Creates an error
         e = f'File not found: {file_name}.'
 
-        # Logs the error
         logger.error(e)
 
         raise
@@ -60,24 +52,18 @@ def load_txt(file_name):
 
     logger.debug('Loading text from: %s ...', file_name)
 
-    # Tries to load the file
     try:
-        # Opens the .txt file
         file = open(file_name, 'rb')
 
-        # Reads the text
         text = file.read().decode(encoding='utf-8')
 
         logger.debug('Text loaded.')
 
         return text
 
-    # If file can not be loaded
     except FileNotFoundError:
-        # Creates an error
         e = f'File not found: {file_name}.'
 
-        # Logs the error
         logger.error(e)
 
         raise

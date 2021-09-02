@@ -16,7 +16,6 @@ def tokenize_to_sentences(text, language='portuguese'):
 
     """
 
-    # Applies the sentence tokenizer
     tokens = sent_tokenize(text, language=language)
 
     return tokens
@@ -34,7 +33,6 @@ def tokenize_to_words(text, language='portuguese'):
 
     """
 
-    # Applies the word tokenizer
     tokens = word_tokenize(text, language=language)
 
     return tokens

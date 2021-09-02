@@ -25,7 +25,6 @@ class QuestionAnsweringTask(Task):
 
         logger.debug('Task overridden: question_answering.')
 
-        # Override its parent class with inputted arguments
         super(QuestionAnsweringTask, self).__init__(model, **kwargs)
 
     def _build(self, model):

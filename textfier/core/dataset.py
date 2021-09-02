@@ -20,9 +20,7 @@ class Dataset(torch.utils.data.Dataset):
 
         logger.debug('Creating dataset ...')
 
-        # For every key-value pair
         for (key, value) in kwargs.items():
-            # Sets an attribute based on key-value pair
             setattr(self, key, value)
 
         logger.debug('Dataset created.')
@@ -38,12 +36,9 @@ class Dataset(torch.utils.data.Dataset):
 
         """
 
-        # Defines an empty dictionary for holding the sample
         sample = {}
 
-        # For every key-value pair
         for (key, value) in vars(self).items():
-            # Adds the key-value pair based on current index
             sample[key] = value[idx]
 
         return sample
@@ -56,7 +51,6 @@ class Dataset(torch.utils.data.Dataset):
 
         """
 
-        # Trick to gather the first property from the class
         prop = list(vars(self).values())[0]
 
         return len(prop)

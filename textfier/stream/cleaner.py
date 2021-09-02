@@ -22,7 +22,6 @@ def clean_sentences(sentences, remove_stopwords=False, language='portuguese'):
     # Creates a list of stemmed sentences
     stemmed_sentences = []
 
-    # For every possible sentence
     for s in sentences:
         # Tokenizes the sentence into words
         words = t.tokenize_to_words(s)
@@ -52,7 +51,6 @@ def clean_words(words, remove_stopwords=False, language='portuguese'):
     # Creates the RSLP stemmer
     stemmer = RSLPStemmer()
 
-    # Checks if stopwords are supposed to be removed
     if remove_stopwords:
         # Gathers the stopwords
         stop_words = stopwords.words(language)
@@ -60,7 +58,6 @@ def clean_words(words, remove_stopwords=False, language='portuguese'):
         # Stems and removes the stopwords
         stemmed_words = [stemmer.stem(word) for word in words if word.lower() not in stop_words]
 
-    # If stopwords are not supposed to be removed
     else:
         # Just stems the words
         stemmed_words = [stemmer.stem(word) for word in words]

@@ -25,7 +25,6 @@ class Seq2SeqTask(Task):
 
         logger.debug('Task overridden: seq2seq.')
 
-        # Override its parent class with inputted arguments
         super(Seq2SeqTask, self).__init__(model, **kwargs)
 
     def _build(self, model):

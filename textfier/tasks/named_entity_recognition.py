@@ -25,7 +25,6 @@ class NamedEntityRecognitionTask(Task):
 
         logger.debug('Task overridden: named_entity_recognition.')
 
-        # Override its parent class with inputted arguments
         super(NamedEntityRecognitionTask, self).__init__(model, **kwargs)
 
     def _build(self, model):

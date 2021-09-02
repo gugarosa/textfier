@@ -29,17 +29,12 @@ class Task:
         # Loads the model's tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(model)
 
-        # Tries to build the task
         try:
-            # Note that it will only build is method is overridden in child
             self._build(model)
 
-            # Logs that task has been created
             logger.debug('Task created.')
 
-        # If task could not be built
         except NotImplementedError:
-            # Logs an error
             logger.error('Private method `build` has not been overridden.')
 
     def _build(self, model):

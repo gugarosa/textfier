@@ -25,7 +25,6 @@ class CausalLanguageModelingTask(Task):
 
         logger.debug('Task overridden: causal_language_modeling.')
 
-        # Override its parent class with inputted arguments
         super(CausalLanguageModelingTask, self).__init__(model, **kwargs)
 
     def _build(self, model):
@@ -56,7 +55,6 @@ class MaskedLanguageModelingTask(Task):
 
         logger.debug('Task overridden: masked_language_modeling.')
 
-        # Override its parent class with inputted arguments
         super(MaskedLanguageModelingTask, self).__init__(model, **kwargs)
 
     def _build(self, model):

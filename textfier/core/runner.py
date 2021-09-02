@@ -26,10 +26,8 @@ class Runner(Trainer):
 
         logger.debug('Creating runner ...')
 
-        # Defines the arguments
         args = TrainingArguments(output_dir='./results', logging_dir='./logs', **kwargs)
 
-        # Overrides its parent class with inputted arguments
         super(Runner, self).__init__(model, args, train_dataset=train_dataset,
                                      eval_dataset=eval_dataset, compute_metrics=compute_metrics)
 

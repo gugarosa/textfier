@@ -25,7 +25,6 @@ class SequenceClassificationTask(Task):
 
         logger.debug('Task overridden: sequence_classification.')
 
-        # Override its parent class with inputted arguments
         super(SequenceClassificationTask, self).__init__(model, **kwargs)
 
     def _build(self, model):
