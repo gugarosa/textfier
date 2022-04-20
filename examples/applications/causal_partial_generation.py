@@ -1,16 +1,17 @@
 import torch
 from torch.nn import functional as F
-from textfier.tasks import CausalLanguageModelingTask
 from transformers import top_k_top_p_filtering
 
+from textfier.tasks import CausalLanguageModelingTask
+
 # Creates a causal language modeling task
-task = CausalLanguageModelingTask(model='gpt2')
+task = CausalLanguageModelingTask(model="gpt2")
 
 # Defines the input seed
-seed = 'I would like to go to the zoo and'
+seed = "I would like to go to the zoo and"
 
 # Encodes the input
-inputs = task.tokenizer.encode(seed, return_tensors='pt')
+inputs = task.tokenizer.encode(seed, return_tensors="pt")
 
 # Passes the inputs through the model and gathers the logits
 logits = task.model(inputs)[0][:, -1, :]

@@ -4,10 +4,7 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
-<<<<<<< HEAD
   - "3.9"
-=======
->>>>>>> 57474f213cf7d04850d8115ff0b31d98483fa138
 # command to install dependencies
 install:
   - pip install -r requirements.txt

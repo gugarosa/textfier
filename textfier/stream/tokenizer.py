@@ -1,18 +1,22 @@
 """Tokenization-based utilities, such as sentence- and word-level tokenizers.
 """
 
+from typing import List, Optional
+
 from nltk.tokenize import sent_tokenize, word_tokenize
 
 
-def tokenize_to_sentences(text, language='portuguese'):
+def tokenize_to_sentences(
+    text: str, language: Optional[str] = "portuguese"
+) -> List[str]:
     """Tokenizes text into sentence-level.
 
     Args:
-        text (str): String holding the text to be tokenized.
-        language (str): Identifier of tokenizer's language.
+        text: String holding the text to be tokenized.
+        language: Identifier of tokenizer's language.
 
     Returns:
-        List of sentence-level tokens.
+        (List[str]): Sentence-level tokens.
 
     """
 
@@ -21,15 +25,15 @@ def tokenize_to_sentences(text, language='portuguese'):
     return tokens
 
 
-def tokenize_to_words(text, language='portuguese'):
+def tokenize_to_words(text: str, language: Optional[str] = "portuguese") -> List[str]:
     """Tokenizes text into word-level.
 
     Args:
-        text (str): String holding the text to be tokenized.
-        language (str): Identifier of tokenizer's language.
+        text: String holding the text to be tokenized.
+        language: Identifier of tokenizer's language.
 
     Returns:
-        List of word-level tokens.
+        (List[str]): Word-level tokens.
 
     """
 

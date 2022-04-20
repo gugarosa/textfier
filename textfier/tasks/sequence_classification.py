@@ -3,10 +3,10 @@
 
 from transformers import AutoModelForSequenceClassification
 
-import textfier.utils.logging as l
 from textfier.core import Task
+from textfier.utils import logging
 
-logger = l.get_logger(__name__)
+logger = logging.get_logger(__name__)
 
 
 class SequenceClassificationTask(Task):
@@ -15,25 +15,27 @@ class SequenceClassificationTask(Task):
 
     """
 
-    def __init__(self, model, **kwargs):
+    def __init__(self, model: str, **kwargs) -> None:
         """Initialization method.
 
         Args:
-            model (str): Identifier of the pre-trained model to be loaded.
+            model: Identifier of the pre-trained model to be loaded.
 
         """
 
-        logger.debug('Task overridden: sequence_classification.')
+        logger.debug("Task overridden: sequence_classification.")
 
         super(SequenceClassificationTask, self).__init__(model, **kwargs)
 
-    def _build(self, model):
+    def _build(self, model: str) -> None:
         """Builds up the pre-trained model according to the desired task.
 
         Args:
-            model (str): Identifier of the pre-trained model to be built.
+            model: Identifier of the pre-trained model to be built.
 
         """
 
         # Loads the pre-trained model according to the class' task
-        self.model = AutoModelForSequenceClassification.from_pretrained(model, config=self.config)
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            model, config=self.config
+        )

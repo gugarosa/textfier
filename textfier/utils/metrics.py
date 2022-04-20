@@ -1,18 +1,20 @@
 """Metrics-based utilities for computing important information.
 """
 
-from sklearn.metrics import (accuracy_score, f1_score, precision_score,
-                             recall_score)
+from typing import Any, Dict
+
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from transformers.trainer_utils import PredictionOutput
 
 
-def compute_metrics(preds):
+def compute_metrics(preds: PredictionOutput) -> Dict[str, Any]:
     """Computes a set of metrics (accuracy, f1-score, precision and recall).
 
     Args:
-        preds (transformers.trainer_utils.PredictionOutput): Predictions and potential metrics.
+        preds: Predictions and potential metrics.
 
     Returns:
-        A dictionary containing a set of metrics.
+        (Dict[str, Any]): Set of metrics.
 
     """
 
@@ -26,17 +28,12 @@ def compute_metrics(preds):
     accuracy = accuracy_score(y_true, y_preds)
 
     # Calculates the f1-score
-    f1 = f1_score(y_true, y_preds, average='weighted')
+    f1 = f1_score(y_true, y_preds, average="weighted")
 
     # Calculates the precision score
-    precision = precision_score(y_true, y_preds, average='weighted')
+    precision = precision_score(y_true, y_preds, average="weighted")
 
     # Calculates the recall score
-    recall = recall_score(y_true, y_preds, average='weighted')
+    recall = recall_score(y_true, y_preds, average="weighted")
 
-    return {
-        'accuracy': accuracy,
-        'f1': f1,
-        'precision': precision,
-        'recall': recall
-    }
+    return {"accuracy": accuracy, "f1": f1, "precision": precision, "recall": recall}

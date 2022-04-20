@@ -1,21 +1,27 @@
 """Cleaning-based utilities, such as stemmers and stopword removal.
 """
 
+from typing import List, Optional
+
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer
 
 import textfier.stream.tokenizer as t
 
 
-def clean_sentences(sentences, remove_stopwords=False, language='portuguese'):
+def clean_sentences(
+    sentences: List[str],
+    remove_stopwords: Optional[bool] = False,
+    language: Optional[str] = "portuguese",
+) -> List[str]:
     """Stems and removes stopwords from a set of sentence-level tokens using the RSLPStemmer.
 
     Args:
-        sentences (list): Sentences to be stemmed.
-        remove_stopwords (bool): Whether stopwords should be removed or not.
+        sentences: Sentences to be stemmed.
+        remove_stopwords: Whether stopwords should be removed or not.
 
     Returns:
-        List of stemmed tokens.
+        (List[str]): Stemmed tokens.
 
     """
 
@@ -30,21 +36,25 @@ def clean_sentences(sentences, remove_stopwords=False, language='portuguese'):
         stemmed_words = clean_words(words, remove_stopwords, language)
 
         # Re-builds the sentence and appends to list
-        stemmed_sentences.append(' '.join(stemmed_words))
+        stemmed_sentences.append(" ".join(stemmed_words))
 
     return stemmed_sentences
 
 
-def clean_words(words, remove_stopwords=False, language='portuguese'):
+def clean_words(
+    words: List[str],
+    remove_stopwords: Optional[bool] = False,
+    language: Optional[str] = "portuguese",
+) -> List[str]:
     """Stems and removes stopwords from a set of word-level tokens using the RSLPStemmer.
 
     Args:
-        words (list): Tokens to be stemmed.
-        remove_stopwords (bool): Whether stopwords should be removed or not.
-        language (str): Identifier of stopwords' language.
+        words: Tokens to be stemmed.
+        remove_stopwords: Whether stopwords should be removed or not.
+        language: Identifier of stopwords' language.
 
     Returns:
-        List of stemmed tokens.
+        (List[str]): Stemmed tokens.
 
     """
 
@@ -56,7 +66,9 @@ def clean_words(words, remove_stopwords=False, language='portuguese'):
         stop_words = stopwords.words(language)
 
         # Stems and removes the stopwords
-        stemmed_words = [stemmer.stem(word) for word in words if word.lower() not in stop_words]
+        stemmed_words = [
+            stemmer.stem(word) for word in words if word.lower() not in stop_words
+        ]
 
     else:
         # Just stems the words

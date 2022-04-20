@@ -3,13 +3,13 @@ import torch
 from textfier.tasks import MaskedLanguageModelingTask
 
 # Creates a masked language modeling task
-task = MaskedLanguageModelingTask(model='distilbert-base-cased')
+task = MaskedLanguageModelingTask(model="distilbert-base-cased")
 
 # Defines the input text
-text = f'Distilled models are {task.tokenizer.mask_token} than the models they mimic.'
+text = f"Distilled models are {task.tokenizer.mask_token} than the models they mimic."
 
 # Encodes the input
-enc_text = task.tokenizer.encode(text, return_tensors='pt')
+enc_text = task.tokenizer.encode(text, return_tensors="pt")
 
 # Gathers the mask token's index
 mask_token = torch.where(enc_text == task.tokenizer.mask_token_id)[1]

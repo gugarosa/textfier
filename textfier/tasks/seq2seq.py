@@ -3,10 +3,10 @@
 
 from transformers import AutoModelForSeq2SeqLM
 
-import textfier.utils.logging as l
 from textfier.core import Task
+from textfier.utils import logging
 
-logger = l.get_logger(__name__)
+logger = logging.get_logger(__name__)
 
 
 class Seq2SeqTask(Task):
@@ -15,23 +15,23 @@ class Seq2SeqTask(Task):
 
     """
 
-    def __init__(self, model, **kwargs):
+    def __init__(self, model: str, **kwargs) -> None:
         """Initialization method.
 
         Args:
-            model (str): Identifier of the pre-trained model to be loaded.
+            model: Identifier of the pre-trained model to be loaded.
 
         """
 
-        logger.debug('Task overridden: seq2seq.')
+        logger.debug("Task overridden: seq2seq.")
 
         super(Seq2SeqTask, self).__init__(model, **kwargs)
 
-    def _build(self, model):
+    def _build(self, model: str) -> None:
         """Builds up the pre-trained model according to the desired task.
 
         Args:
-            model (str): Identifier of the pre-trained model to be built.
+            model: Identifier of the pre-trained model to be built.
 
         """
 

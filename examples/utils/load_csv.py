@@ -1,7 +1,7 @@
-import textfier.utils.loader as l
+from textfier.utils import loader
 
 # Loads an input .csv file
-samples, labels = l.load_csv('data/csv/train.csv')
+samples, labels = loader.load_csv("data/csv/train.csv")
 
 # Printing loaded text
 print(samples, labels)

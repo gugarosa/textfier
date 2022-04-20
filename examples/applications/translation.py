@@ -1,13 +1,13 @@
 from textfier.tasks import Seq2SeqTask
 
 # Creates a sequence-to-sequence task
-task = Seq2SeqTask(model='t5-small')
+task = Seq2SeqTask(model="t5-small")
 
 # Defines the input text
-text = 'translate English to German: My name is Textfier and I am able to help you.'
+text = "translate English to German: My name is Textfier and I am able to help you."
 
 # Encodes the input
-enc_text = task.tokenizer.encode(text, return_tensors='pt')
+enc_text = task.tokenizer.encode(text, return_tensors="pt")
 
 # Performs the translation
 preds = task.model.generate(enc_text, max_length=40, num_beams=4, early_stopping=True)

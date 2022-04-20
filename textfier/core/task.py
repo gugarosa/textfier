@@ -3,25 +3,23 @@
 
 from transformers import AutoConfig, AutoTokenizer
 
-import textfier.utils.logging as l
+from textfier.utils import logging
 
-logger = l.get_logger(__name__)
+logger = logging.get_logger(__name__)
 
 
 class Task:
-    """Task implements a default class used to handle customizable tasks.
+    """Task implements a default class used to handle customizable tasks."""
 
-    """
-
-    def __init__(self, model, **kwargs):
+    def __init__(self, model: str, **kwargs) -> None:
         """Initialization method.
 
         Args:
-            model (str): Identifier of the pre-trained model to be loaded.
+            model: Identifier of the pre-trained model to be loaded.
 
         """
 
-        logger.debug('Creating task with: %s ...', model)
+        logger.debug("Creating task with: %s ...", model)
 
         # Overrides the model's configuration file with additional keywords
         self.config = AutoConfig.from_pretrained(model, **kwargs)
@@ -32,16 +30,16 @@ class Task:
         try:
             self._build(model)
 
-            logger.debug('Task created.')
+            logger.debug("Task created.")
 
         except NotImplementedError:
-            logger.error('Private method `build` has not been overridden.')
+            logger.error("Private method `build` has not been overridden.")
 
-    def _build(self, model):
+    def _build(self, model: str) -> None:
         """Builds up the pre-trained model according to the desired task.
 
         Args:
-            model (str): Identifier of the pre-trained model to be built.
+            model: Identifier of the pre-trained model to be built.
 
         """
 

@@ -1,7 +1,7 @@
 from textfier.core import Dataset
 
 # Defines the input sequences
-sentences = ['hey', 'lets go']
+sentences = ["hey", "lets go"]
 
 # Defines the input labels
 labels = [0, 0]

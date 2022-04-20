@@ -1,7 +1,7 @@
-import textfier.utils.loader as l
+from textfier.utils import loader
 
 # Loads an input .txt file
-text = l.load_txt('data/txt/train.txt')
+text = loader.load_txt("data/txt/train.txt")
 
 # Printing loaded text
 print(text)

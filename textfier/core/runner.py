@@ -1,34 +1,46 @@
 """Default runner class, which overiddes and eases huggingface's trainer.
 """
 
-from transformers import Trainer, TrainingArguments
+from typing import Optional
 
-import textfier.utils.logging as l
+from transformers import PreTrainedModel, Trainer, TrainingArguments
+
+from textfier.core.dataset import Dataset
+from textfier.utils import logging
 from textfier.utils.metrics import compute_metrics
 
-logger = l.get_logger(__name__)
+logger = logging.get_logger(__name__)
 
 
 class Runner(Trainer):
-    """Runner implements a default class used to handle customizable trainers.
+    """Runner implements a default class used to handle customizable trainers."""
 
-    """
-
-    def __init__(self, model, train_dataset=None, eval_dataset=None, **kwargs):
+    def __init__(
+        self,
+        model: PreTrainedModel,
+        train_dataset: Optional[Dataset] = None,
+        eval_dataset: Optional[Dataset] = None,
+        **kwargs
+    ) -> None:
         """Inialization method.
 
         Args:
-            model (PreTrainedModel): Pre-trained model.
-            train_dataset (Dataset): Training dataset.
-            eval_dataset (Dataset): Evaluation dataset.
+            model: Pre-trained model.
+            train_dataset: Training dataset.
+            eval_dataset: Evaluation dataset.
 
         """
 
-        logger.debug('Creating runner ...')
+        logger.debug("Creating runner ...")
 
-        args = TrainingArguments(output_dir='./results', logging_dir='./logs', **kwargs)
+        args = TrainingArguments(output_dir="./results", logging_dir="./logs", **kwargs)
 
-        super(Runner, self).__init__(model, args, train_dataset=train_dataset,
-                                     eval_dataset=eval_dataset, compute_metrics=compute_metrics)
+        super(Runner, self).__init__(
+            model,
+            args,
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            compute_metrics=compute_metrics,
+        )
 
-        logger.debug('Runner created.')
+        logger.debug("Runner created.")

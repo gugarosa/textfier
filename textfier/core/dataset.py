@@ -1,38 +1,36 @@
 """Default dataset class.
 """
 
+from typing import Any, Dict
+
 import torch
 
-import textfier.utils.logging as l
+from textfier.utils import logging
 
-logger = l.get_logger(__name__)
+logger = logging.get_logger(__name__)
 
 
 class Dataset(torch.utils.data.Dataset):
-    """Dataset implements a default class used to handle customizable datasets.
-
-    """
+    """Dataset implements a default class used to handle customizable datasets."""
 
     def __init__(self, **kwargs):
-        """Initialization method.
+        """Initialization method."""
 
-        """
-
-        logger.debug('Creating dataset ...')
+        logger.debug("Creating dataset ...")
 
         for (key, value) in kwargs.items():
             setattr(self, key, value)
 
-        logger.debug('Dataset created.')
+        logger.debug("Dataset created.")
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx: int) -> Dict[str, Any]:
         """Private method that serves as PyTorch's iterator.
 
         Args:
-            idx (int): Index of sample.
+            idx: Index of sample.
 
         Returns:
-            A dictionary containing desired keys.
+            (Dict[str, Any]): Desired keys/values pair.
 
         """
 
@@ -43,11 +41,11 @@ class Dataset(torch.utils.data.Dataset):
 
         return sample
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Private method that serve as PyTorch's auxiliary.
 
         Returns:
-            Length of the first dataset's property.
+            (int): Length of the first dataset's property.
 
         """
 
